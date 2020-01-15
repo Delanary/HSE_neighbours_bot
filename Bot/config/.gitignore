@@ -1,0 +1,5 @@
+# database should be ignored
+#
+
+
+*.db

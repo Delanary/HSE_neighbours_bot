@@ -130,7 +130,7 @@ def send_message(user_id, text, reply_markup=NONE_markup):
         try:
             for i in range(len(text) // 2000 + 1):
                 bot.send_message(user_id, text[i * 2000: (i + 1) * 2000],
-                                 reply_markup=reply_markup)
+                                 reply_markup=reply_markup, parse_mode='html')
         except Exception as e:
             File = open('log.txt', 'a')
             print(e, datetime.datetime.now(), file=File)
@@ -378,9 +378,9 @@ def main():
                                 name = neighbour[0].split()
                                 if len(name) < 2:
                                     name.insert(0, 'NONE')
-                                send_message(user_id, "Хендл: @%s, имя: %s, ссылка на вк: %s" % (
-                                    name[0], ' '.join(name[1:]), get_user_vk(neighbour[1]
-                                                                             )))
+                                send_message(user_id, "Хендл: @%s, имя: %s, ссылка на вк: %s, <a href='tg://user?id=%s'>"
+                                                      ">ссылка на телеграм</a>" % (
+                                    name[0], ' '.join(name[1:]), get_user_vk(neighbour[1]), user_id))
                         send_message(user_id,
                                      'Мы нашли нескольких ваших соседей, но, быть может, есть и другие!\nЧтобы быстрее узнать всех людей, с которыми живете, кидайте ссылку на бота друзьям, делайте репосты из нашей группы в вк (смотрите описание бота)')
                     else:

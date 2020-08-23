@@ -380,7 +380,7 @@ def main():
                                     name.insert(0, 'NONE')
                                 send_message(user_id, "Хендл: @%s, имя: %s, ссылка на вк: %s, <a href='tg://user?id=%s'>"
                                                       ">ссылка на телеграм</a>" % (
-                                    name[0], ' '.join(name[1:]), get_user_vk(neighbour[1]), user_id))
+                                    name[0], ' '.join(name[1:]), get_user_vk(neighbour[1]), neighbour[1]))
                         send_message(user_id,
                                      'Мы нашли нескольких ваших соседей, но, быть может, есть и другие!\nЧтобы быстрее узнать всех людей, с которыми живете, кидайте ссылку на бота друзьям, делайте репосты из нашей группы в вк (смотрите описание бота)')
                     else:
